@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- service bean -->
+  <bean id="deptservice" class="tj.ljjtlb.service.DeptserviceImpl">
+	<!-- 注入dao -->
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="userservice" class="tj.ljjtlb.service.UserserviceImpl">
+	<!-- 注入dao -->
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="roleservice" class="tj.ljjtlb.service.RoleserviceImpl">
+	<!-- 注入dao -->
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="moduleservice" class="tj.ljjtlb.service.ModuleserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="contracteservice" class="tj.ljjtlb.service.ContractserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="extCProductservice" class="tj.ljjtlb.service.ExtCProductserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="contractProductservice" class="tj.ljjtlb.service.ContractProductserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="factoryservice" class="tj.ljjtlb.service.FactoryserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="exportservice" class="tj.ljjtlb.service.ExportserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	<bean id="exportProductservice" class="tj.ljjtlb.service.ExportProductserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	<bean id="exteProductservice" class="tj.ljjtlb.service.ExteProductserviceImpl">
+	<property name="basedao" ref="baseDao"></property>
+	</bean>
+	
+	<bean id="packingListService" class="tj.ljjtlb.service.PackingListServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	
+	<bean id="shippingOrderService" class="tj.ljjtlb.service.ShippingOrderServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	
+	<bean id="loginLogService" class="tj.ljjtlb.service.LoginLogServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

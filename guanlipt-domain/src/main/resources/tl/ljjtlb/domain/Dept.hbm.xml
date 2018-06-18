@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="tl.ljjtlb.domain.Dept" table="dept_p">
+		<id name="id" column="DEPT_ID">
+			<generator class="uuid"/>
+		</id>
+		
+		<property name="dept_name" column="DEPT_NAME"/>
+		<property name="state" column="STATE"/>
+<!-- 多对一配置 -->
+     <many-to-one name="deptparent" class="tl.ljjtlb.domain.Dept" column="PARENT_ID"></many-to-one>   
+
+
+<!-- 部门下的用户一对多配置 -->
+        <set name="users" inverse="true">
+        <key column="DEPT_ID"/>
+        <one-to-many class="tl.ljjtlb.domain.User"/>
+        </set>
+
+
+
+	</class>
+	
+</hibernate-mapping>    

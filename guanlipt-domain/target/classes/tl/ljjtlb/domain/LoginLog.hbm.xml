@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="tl.ljjtlb.domain">
+
+	<!-- 配置类的映射 -->
+	
+	<class name="LoginLog" table="LOGIN_LOG_P">
+	
+		<!-- 1.配置主键生成策略 -->
+		<id name="id" column="LOGIN_LOG_ID" type="string">
+			<generator class="uuid"/>
+		</id>
+		
+		<!-- 2.配置其他属性 -->
+		<property name="loginName" column="LOGIN_NAME" type="string"/>
+		
+		<property name="ipAddress" column="IP_ADDRESS" type="string"/>
+		
+		<property name="loginTime" column="LOGIN_TIME" type="string"/>
+	</class>
+
+</hibernate-mapping>

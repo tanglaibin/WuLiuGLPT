@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="tl.ljjtlb.domain.Role" table="role_p">
+		<id name="id" column="ROLE_ID">
+			<generator class="uuid"/>
+		</id>
+
+		<property name="name" column="NAME"/>
+		<property name="remark" column="REMARK"/>
+		<property name="orderNo" column="ORDER_NO"/>
+		
+		<property name="createby" column="CREATE_BY"/>
+		<property name="createDept" column="CREATE_DEPT"/>
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="updateBy" column="UPDATE_BY"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+		
+		<set name="users" table="role_user_p">
+        <key column="ROLE_ID"></key>
+        <many-to-many class="tl.ljjtlb.domain.User" column="USER_ID" ></many-to-many>
+		</set>
+		
+		<set name="models" table="role_module_p">
+        <key column="ROLE_ID"></key>
+        <many-to-many class="tl.ljjtlb.domain.Module" column="MODULE_ID" order-by="ORDER_NO"></many-to-many>
+		</set>
+		
+	</class>
+	
+</hibernate-mapping>    

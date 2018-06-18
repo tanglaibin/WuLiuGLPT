@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<!-- 先配置包结构 -->
+	<package name="glpt" extends="struts-default" namespace="/">
+	
+	<!-- 配置全局异常 sysException，error -->
+		<global-results>
+			<result name="sysException">/WEB-INF/pages/error.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="sysException" exception="tj.ljjtlb.exception.SysException"/>
+			<exception-mapping result="error" exception="java.lang.Exception"/>
+		</global-exception-mappings>
+	
+	
+	
+		<action name="login" class="loginaction" method="login">
+		<result name="login">/WEB-INF/pages/sysadmin/login/login.jsp</result>
+		<result name="suess">/WEB-INF/pages/home/fmain.jsp</result>
+		</action>	
+		
+		<action name="logout" class="loginaction" method="logout">
+		<result name="logout">/WEB-INF/pages/sysadmin/login/logout.jsp</result>
+		</action>	
+		
+		<action name="homeAction_*" method="{1}" class="homeaction">
+			<result name="fmain">/WEB-INF/pages/home/fmain.jsp</result>
+			<result name="title">/WEB-INF/pages/home/title.jsp</result>
+			<result name="toleft">/WEB-INF/pages/${moduleName}/left.jsp</result>
+			<result name="tomain">/WEB-INF/pages/${moduleName}/main.jsp</result>
+		</action>
+		
+	</package>
+	<include file="struts-sysadmin.xml"></include>
+	<include file="struts-cargo.xml"></include>
+	<include file="struts-chart.xml"></include>
+</struts>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="tl.ljjtlb.domain.User" table="user_p">
+		<id name="id" column="USER_ID">
+			<generator class="assigned"/>
+		</id>
+		
+		<property name="userName" column="USER_NAME"/>
+		<property name="password" column="PASSWORD"/>
+		<property name="state" column="STATE"/>
+		<property name="createby" column="CREATE_BY"/>
+		<property name="createDept" column="CREATE_DEPT"/>
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="updateBy" column="UPDATE_BY"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+		
+       <!-- 多对一配置 -->
+     <many-to-one name="dept" class="tl.ljjtlb.domain.Dept" column="DEPT_ID"></many-to-one> 
+       <!-- 一对一配置 -->
+     <one-to-one name="userinfo" class="tl.ljjtlb.domain.Userinfo" cascade="all"></one-to-one> 
+     
+     <set name="roles" table="role_user_p">
+        <key column="USER_ID"></key>
+        <many-to-many class="tl.ljjtlb.domain.Role" column="ROLE_ID" order-by="ORDER_NO"></many-to-many>
+		</set>
+     
+     
+     
+	</class>
+	
+</hibernate-mapping>    

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- service bean -->
+	<bean id="loginaction" class="tj.ljjtlb.action.LoginAction"  scope="prototype">
+	<property name="loginLogService" ref="loginLogService"></property>
+	</bean>
+	
+	<bean id="homeaction" class="tj.ljjtlb.action.HomeAction"  scope="prototype">
+	</bean>
+  
+	<bean id="deptaction" class="tj.ljjtlb.action.Deptaction"  scope="prototype">
+	<!-- 注入service -->
+	<property name="deptservice" ref="deptservice"></property>
+	</bean>
+  
+  <bean id="useraction" class="tj.ljjtlb.action.Useraction"  scope="prototype">
+	<!-- 注入service -->
+	<property name="userservice" ref="userservice"></property>
+	<property name="deptservice" ref="deptservice"></property>
+	<property name="roleservice" ref="roleservice"></property>
+	</bean>
+  
+  <bean id="roleaction" class="tj.ljjtlb.action.Roleaction"  scope="prototype">
+	<!-- 注入service -->
+	<property name="roleservice" ref="roleservice"></property>
+	<property name="moduleservice" ref="moduleservice"></property>
+	</bean>
+	
+  <bean id="moduleaction" class="tj.ljjtlb.action.Moduleaction"  scope="prototype">
+	<!-- 注入service -->
+	<property name="moduleservice" ref="moduleservice"></property>
+	</bean>
+	
+  <bean id="contractaction" class="tj.ljjtlb.action.cargo.Contractaction"  scope="prototype">
+	<!-- 注入service -->
+	<property name="contractservice" ref="contracteservice"></property>
+	</bean>
+ 
+  <bean id="contractproductaction" class="tj.ljjtlb.action.cargo.ContractProductaction"  scope="prototype">
+	<property name="contractProductservice" ref="contractProductservice"></property>
+	<property name="factoryservice" ref="factoryservice"></property>
+	</bean>
+	
+  <bean id="extCProductaction" class="tj.ljjtlb.action.cargo.ExtCProductaction"  scope="prototype">
+	<property name="extCProductservice" ref="extCProductservice"></property>
+	<property name="factoryservice" ref="factoryservice"></property>
+	</bean>
+	
+  <bean id="outProductaction" class="tj.ljjtlb.action.cargo.OutProductaction"  scope="prototype">
+	<property name="contractProductservice" ref="contractProductservice"></property>
+	</bean>
+	
+  <bean id="exportaction" class="tj.ljjtlb.action.cargo.Exportaction"  scope="prototype">
+	<property name="exportservice" ref="exportservice"></property>
+	<property name="contractservice" ref="contracteservice"></property>
+	<property name="exportproductservice" ref="exportProductservice"></property>
+	</bean>
+	
+  <bean id="statChartAction" class="tj.ljjtlb.action.chart.StatChartAction"  scope="prototype">
+	<property name="sqldao" ref="salDao"></property>
+	</bean>
+	
+	<bean id="packingListAction" class="tj.ljjtlb.action.cargo.PackingListAction" scope="prototype">
+		<property name="packingListService" ref="packingListService"/>
+		<property name="exportservice" ref="exportservice"/>
+	</bean>
+	
+	<bean id="shippingOrderAction" class="tj.ljjtlb.action.cargo.ShippingOrderAction" scope="prototype">
+		<property name="shippingOrderService" ref="shippingOrderService"/>
+		<property name="packingListService" ref="packingListService"/>
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

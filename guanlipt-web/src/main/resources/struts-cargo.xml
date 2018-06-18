@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<!-- 先配置包结构 -->
+	<package name="cargo" extends="struts-default" namespace="/cargo">
+	
+		<action name="contractAction_*" class="contractaction" method="{1}">
+		<result name="list">/WEB-INF/pages/cargo/contract/jContractList.jsp</result>
+		<result name="toview">/WEB-INF/pages/cargo/contract/jContractView.jsp</result>
+		<result name="tocreate">/WEB-INF/pages/cargo/contract/jContractCreate.jsp</result>
+		<result name="alllist" type="redirectAction">contractAction_list</result>
+		<result name="upui">/WEB-INF/pages/cargo/contract/jContractUpdate.jsp</result>
+		</action>	
+		
+		<action name="contractProductAction_*" class="contractproductaction" method="{1}">
+		<result name="tocreate">/WEB-INF/pages/cargo/contract/jContractProductCreate.jsp</result>
+		<result name="ct" type="redirectAction">contractProductAction_tocreate</result>
+		<result name="upui">/WEB-INF/pages/cargo/contract/jContractProductUpdate.jsp</result>
+		</action>	
+		
+		<action name="extCproductAction_*" class="extCProductaction" method="{1}">
+		<result name="tocreate">/WEB-INF/pages/cargo/contract/jExtCproductCreate.jsp</result>
+		<result name="upui">/WEB-INF/pages/cargo/contract/jExtCproductUpdate.jsp</result>
+		</action>	
+		
+		<action name="outProductAction_*" class="outProductaction" method="{1}">
+		<result name="toedit">/WEB-INF/pages/cargo/outproduct/jOutProduct.jsp</result>
+		</action>	
+		
+		<action name="exportAction_*" class="exportaction" method="{1}">
+		<result name="contractList">/WEB-INF/pages/cargo/export/jContractList.jsp</result>
+		<result name="tocreate">/WEB-INF/pages/cargo/export/jExportCreate.jsp</result>
+		<result name="list">/WEB-INF/pages/cargo/export/jExportList.jsp</result>
+		<result name="toview">/WEB-INF/pages/cargo/export/jExportView.jsp</result>
+		<result name="upui">/WEB-INF/pages/cargo/export/jExportUpdate.jsp</result>
+		<result name="alllist" type="redirectAction">exportAction_list</result>
+		</action>
+		
+		<action name="packingListAction_*" method="{1}" class="packingListAction">
+			<result name="alist" type="redirect">packingListAction_list</result>
+			<result name="plist">/WEB-INF/pages/cargo/packinglist/jPackingListListPage.jsp</result>
+			<result name="pcreate">/WEB-INF/pages/cargo/packinglist/jPackingListCreate.jsp</result>
+			<result name="pupdate">/WEB-INF/pages/cargo/packinglist/jPackingListUpdate.jsp</result>
+			<result name="pview">/WEB-INF/pages/cargo/packinglist/jPackingListView.jsp</result>
+		</action>
+		
+		
+		<action name="shippingOrderAction_*" method="{1}" class="shippingOrderAction">
+			<result name="alist" type="redirect">shippingOrderAction_list</result>
+			<result name="plist">/WEB-INF/pages/cargo/shiporder/jShippingOrderList.jsp</result>
+			<result name="pcreate">/WEB-INF/pages/cargo/shiporder/jShippingOrderCreate.jsp</result>
+			<result name="pupdate">/WEB-INF/pages/cargo/shiporder/jShippingOrderUpdate.jsp</result>
+			<result name="pview">/WEB-INF/pages/cargo/shiporder/jShippingOrderView.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+	
+	
+</struts>

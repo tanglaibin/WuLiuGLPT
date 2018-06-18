@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="tl.ljjtlb.domain.Userinfo" table="user_info_p">
+		<id name="id" column="USER_INFO_ID">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" column="NAME"/>
+		<property name="joinDate" column="JOIN_DATE"/>
+		<property name="salary" column="SALARY"/>
+		<property name="birthday" column="BIRTHDAY"/>
+		<property name="gender" column="GENDER"/>
+		<property name="station" column="STATION"/>
+		<property name="mail" column="MAIL"/>
+		<property name="telephone" column="TELEPHONE"/>
+		<property name="degree" column="DEGREE"/>
+		<property name="remark" column="REMARK"/>
+		<property name="orderNo" column="ORDER_NO"/>
+		
+		<property name="createby" column="CREATE_BY"/>
+		<property name="createDept" column="CREATE_DEPT"/>
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="updateBy" column="UPDATE_BY"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+
+         <!-- 多对一配置 -->
+     <many-to-one name="manager" class="tl.ljjtlb.domain.User" column="MANAGER_ID"></many-to-one> 
+     
+	</class>
+	
+</hibernate-mapping>    
